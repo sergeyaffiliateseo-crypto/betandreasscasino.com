@@ -78,14 +78,6 @@ img { max-width: 100%; height: auto; display: block; }
 .b74-cn { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
 
 
-.b74-cl {
-  display: flex !important; flex-direction: column !important;
-  gap: 30px; padding: 24px 0;
-}
-.b74-mc { flex: 1; min-width: 0; }
-.b74-sb { position: static !important; width: 100% !important; }
-
-
 .b74-ky {
   display: flex !important;
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 99;
@@ -95,6 +87,31 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 12px 16px; justify-content: center;
 }
 .b74-ky .b74-bt { width: 100%; max-width: 400px; font-size: 0.95rem; padding: 12px 20px; }
+
+
+.b74-ep {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center;
+  min-height: 60vh; padding: 48px 24px;
+  max-width: 600px; margin: 0 auto;
+}
+.b74-ec {
+  font-family: var(--font-display); font-stretch: 100%;
+  font-weight: 800; font-size: clamp(6rem, 15vw, 10rem);
+  line-height: 1; color: var(--accent);
+  text-shadow: var(--glow); margin-bottom: 16px;
+}
+.b74-ep h1 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 12px; }
+.b74-ep p { color: var(--text2); font-size: 1rem; margin-bottom: 24px; }
+.b74-el { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+
+.b74-cl {
+  display: flex !important; flex-direction: column !important;
+  gap: 30px; padding: 24px 0;
+}
+.b74-mc { flex: 1; min-width: 0; }
+.b74-sb { position: static !important; width: 100% !important; }
 
 
 .b74-fs { margin: 32px 0; }
@@ -133,6 +150,52 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0 16px 16px;
   color: var(--text2); font-size: 0.9rem; line-height: 1.7;
 }
+
+
+.b74-sc {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px; margin-bottom: 16px;
+}
+.b74-sc h3 {
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 1rem; font-stretch: 100%;
+  margin-bottom: 12px;
+}
+.b74-sc ul { list-style: none; padding: 0; margin: 0; }
+.b74-sc li { margin-bottom: 8px; }
+.b74-sc a { color: var(--text2); font-size: 0.9rem; }
+.b74-sc a:hover { color: var(--accent2); }
+.b74-st ul { border-left: 2px solid var(--border2); padding-left: 12px; }
+.b74-st li { padding: 2px 0; }
+
+
+.b74-ft {
+  background: var(--bg-surf);
+  border-top: 1px solid var(--border);
+  padding: 40px 0 24px; margin-top: 48px;
+}
+.b74-ti { text-align: center; }
+.b74-fv { margin-bottom: 24px; }
+.b74-fv a {
+  color: var(--text2); font-size: 0.85rem;
+  margin: 0 10px; transition: color var(--transition);
+}
+.b74-fv a:hover { color: var(--accent2); }
+.b74-fr { margin-top: 20px; }
+.b74-rb { display: inline-block; font-size: 1.5rem; margin-bottom: 8px; }
+.b74-fr p { color: var(--text3); font-size: 0.8rem; margin: 4px 0 8px; }
+.b74-fc { display: inline-flex; gap: 12px; align-items: center; }
+.b74-fc img { border-radius: 6px; }
+.b74-fl { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+.b74-fl a {
+  color: var(--text3); font-size: 0.8rem;
+  margin: 0 8px; transition: color var(--transition);
+}
+.b74-fl a:hover { color: var(--accent2); }
+.b74-fp { margin-top: 20px; color: var(--text3); font-size: 0.75rem; }
+.b74-fd { color: var(--text3); font-size: 0.78rem; line-height: 1.6; margin-top: 12px; }
 
 
 .b74-hd {
@@ -193,6 +256,25 @@ img { max-width: 100%; height: auto; display: block; }
 .b74-mb a:hover { color: var(--text); background: var(--bg-active); }
 
 
+.b74-bk {
+  position: fixed; right: 16px;
+  bottom: calc(70px + 12px);
+  width: 44px; height: 44px; padding: 0;
+  border: none; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  display: none; align-items: center; justify-content: center;
+  z-index: 98;
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+}
+.b74-bk.b74-vs { display: inline-flex; }
+.b74-bk:hover { background: var(--accent2); transform: translateY(-3px); }
+.b74-bk:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
+.b74-bk svg { width: 22px; height: 22px; fill: currentColor; }
+@media (prefers-reduced-motion: reduce) { .b74-bk { transition: none; } }
+
+
 .b74-bt {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 12px 28px; border-radius: var(--r-full);
@@ -218,88 +300,6 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1px solid var(--border2);
 }
 .b74-sx .b74-bt { width: 100%; margin-top: 12px; }
-
-
-.b74-sc {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: 20px; margin-bottom: 16px;
-}
-.b74-sc h3 {
-  font-family: var(--font-display);
-  font-weight: 700; font-size: 1rem; font-stretch: 100%;
-  margin-bottom: 12px;
-}
-.b74-sc ul { list-style: none; padding: 0; margin: 0; }
-.b74-sc li { margin-bottom: 8px; }
-.b74-sc a { color: var(--text2); font-size: 0.9rem; }
-.b74-sc a:hover { color: var(--accent2); }
-.b74-st ul { border-left: 2px solid var(--border2); padding-left: 12px; }
-.b74-st li { padding: 2px 0; }
-
-
-.b74-ft {
-  background: var(--bg-surf);
-  border-top: 1px solid var(--border);
-  padding: 40px 0 24px; margin-top: 48px;
-}
-.b74-ti { text-align: center; }
-.b74-fv { margin-bottom: 24px; }
-.b74-fv a {
-  color: var(--text2); font-size: 0.85rem;
-  margin: 0 10px; transition: color var(--transition);
-}
-.b74-fv a:hover { color: var(--accent2); }
-.b74-fr { margin-top: 20px; }
-.b74-rb { display: inline-block; font-size: 1.5rem; margin-bottom: 8px; }
-.b74-fr p { color: var(--text3); font-size: 0.8rem; margin: 4px 0 8px; }
-.b74-fc { display: inline-flex; gap: 12px; align-items: center; }
-.b74-fc img { border-radius: 6px; }
-.b74-fl { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
-.b74-fl a {
-  color: var(--text3); font-size: 0.8rem;
-  margin: 0 8px; transition: color var(--transition);
-}
-.b74-fl a:hover { color: var(--accent2); }
-.b74-fp { margin-top: 20px; color: var(--text3); font-size: 0.75rem; }
-.b74-fd { color: var(--text3); font-size: 0.78rem; line-height: 1.6; margin-top: 12px; }
-
-
-.b74-ep {
-  display: flex; flex-direction: column; align-items: center;
-  justify-content: center; text-align: center;
-  min-height: 60vh; padding: 48px 24px;
-  max-width: 600px; margin: 0 auto;
-}
-.b74-ec {
-  font-family: var(--font-display); font-stretch: 100%;
-  font-weight: 800; font-size: clamp(6rem, 15vw, 10rem);
-  line-height: 1; color: var(--accent);
-  text-shadow: var(--glow); margin-bottom: 16px;
-}
-.b74-ep h1 { font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 12px; }
-.b74-ep p { color: var(--text2); font-size: 1rem; margin-bottom: 24px; }
-.b74-el { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-
-
-.b74-bk {
-  position: fixed; right: 16px;
-  bottom: calc(70px + 12px);
-  width: 44px; height: 44px; padding: 0;
-  border: none; border-radius: 50%;
-  background: var(--accent); color: #fff;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-  display: none; align-items: center; justify-content: center;
-  z-index: 98;
-  transition: background var(--transition), transform var(--transition), opacity var(--transition);
-}
-.b74-bk.b74-vs { display: inline-flex; }
-.b74-bk:hover { background: var(--accent2); transform: translateY(-3px); }
-.b74-bk:focus-visible { outline: 2px solid var(--accent2); outline-offset: 2px; }
-.b74-bk svg { width: 22px; height: 22px; fill: currentColor; }
-@media (prefers-reduced-motion: reduce) { .b74-bk { transition: none; } }
 
 
 .b74-ab h1 {
@@ -435,6 +435,12 @@ img { max-width: 100%; height: auto; display: block; }
     <a href="/crash-oyunlari/">Crash Oyunları</a>
     <a href="/idman-mercleri/">İdman Mərcləri</a>
     <a href="/promokod/">Promokod</a>
+    <a href="/giris/">Giriş</a>
+    <a href="/guzgu/">Güzgü</a>
+    <a href="/no-deposit-bonus/">No Deposit Bonus</a>
+    <a href="/pulsuz-firlanmalar/">Pulsuz Fırlanmalar</a>
+    <a href="/partnyorlar/">Tərəfdaşlıq</a>
+    <a href="/mobil-versiya/">Mobil Versiya</a>
     <a href="/yukle/">Yüklə</a>
   </nav>
 </header>
@@ -592,7 +598,8 @@ img { max-width: 100%; height: auto; display: block; }
     <a href="/crash-oyunlari/">Crash Oyunları</a>
     <a href="/idman-mercleri/">İdman Mərcləri</a>
     <a href="/promokod/">Promokod</a>
-    <a href="/yukle/">Yüklə</a>
+    <a href="/giris/">Giriş</a>
+    <a href="/guzgu/">Güzgü</a>
     </nav>
     <nav class="b74-fl">
     <a href="/about/">About Us</a>
