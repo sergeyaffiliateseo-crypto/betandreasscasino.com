@@ -1,0 +1,61 @@
+Options -Indexes
+DirectorySlash Off
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+RewriteBase /
+
+# /go/ → referral redirect
+RewriteRule ^go/?$ https://1win.affredirect.top [R=302,L]
+
+RewriteCond %{THE_REQUEST} \s[^\s]*//
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
+RewriteCond %{ENV:REDIRECT_STATUS} !^$
+RewriteRule ^ - [L]
+
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,6}$
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+RewriteRule ^(.+)$ https://betandreasscasino.com/$1/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.+)$ https://betandreasscasino.com/$1/ [R=301,L]
+
+RewriteRule ^index\.html$ https://betandreasscasino.com/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^([a-z0-9/-]+)/?$ /$1/index.html [L]
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(webp|png|jpg|svg|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>

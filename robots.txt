@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /go/
+Allow: /
+Sitemap: https://betandreasscasino.com/sitemap.xml
